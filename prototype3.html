@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayspring International Academy | Accra, Ghana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2e7d32',
+                        secondary: '#1b5e20',
+                        accent: '#8bc34a',
+                        dark: '#263238',
+                        light: '#f5f5f5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .program-card {
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8bc34a;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-light">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary p-2 rounded-full mr-3">
+                    <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-dark">Dayspring International Academy</h1>
+                    <p class="text-xs text-gray-600">Accra, Ghana</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-dark font-medium hover:text-primary">Home</a>
+                <a href="#about" class="nav-link text-dark font-medium hover:text-primary">About</a>
+                <a href="#programs" class="nav-link text-dark font-medium hover:text-primary">Programs</a>
+                <a href="gallery.html" class="nav-link text-dark font-medium hover:text-primary" target="_self">Gallery</a>
+                <a href="#admissions" class="nav-link text-dark font-medium hover:text-primary">Admissions</a>
+                <a href="#facilities" class="nav-link text-dark font-medium hover:text-primary">Facilities</a>
+                <a href="#contact" class="nav-link text-dark font-medium hover:text-primary">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-dark">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="py-2 text-dark font-medium hover:text-primary">Home</a>
+                <a href="#about" class="py-2 text-dark font-medium hover:text-primary">About</a>
+                <a href="#programs" class="py-2 text-dark font-medium hover:text-primary">Programs</a>
+                <a href="gallery.html" class="nav-link text-dark font-medium hover:text-primary" target="_self">Gallery</a>
+                <a href="#admissions" class="py-2 text-dark font-medium hover:text-primary">Admissions</a>
+                <a href="#facilities" class="py-2 text-dark font-medium hover:text-primary">Facilities</a>
+                <a href="#contact" class="py-2 text-dark font-medium hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32 fade-in">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Shaping Future Leaders</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">A Christian international school offering holistic, values-based education from preschool through pre-university levels.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="#admissions" class="bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">Apply Now</a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-dark text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 transform hover:scale-105">Contact Us</a>
+            </div>
+        </div>
+        
+        <!-- Floating scroll indicator -->
+        <div class="text-center mt-16">
+            <a href="#about" class="inline-block floating-btn">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">About Dayspring International Academy</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="DIA Students" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <p class="text-gray-700 mb-4">Dayspring International Academy (DIA) is a Christian international school established in January 2011 as a sister school to Morning Glory International School in Abidjan. We operate multiple campuses in the East Legon–Adjiringanor area of Accra.</p>
+                    <p class="text-gray-700 mb-4">Our mission is to provide basic quality education that develops future leaders through a balanced international curriculum. We emphasize not only academic excellence but also character formation – encouraging wisdom, humility and compassion in students.</p>
+                    
+                    <div class="bg-primary bg-opacity-10 p-6 rounded-lg mb-6">
+                        <h3 class="font-bold text-primary text-lg mb-3">Our Core Values</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Collaboration</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Creativity</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Innovation</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Integrity</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Care</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Discipline</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Excellence</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Honesty</span>
+                            <span class="bg-accent bg-opacity-20 text-dark px-3 py-1 rounded-full text-sm">Loyalty</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-primary p-3 rounded-full mr-4 text-white">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-dark">14+</h3>
+                                    <p class="text-sm text-gray-600">Years of Excellence</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-primary p-3 rounded-full mr-4 text-white">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-dark">150+</h3>
+                                    <p class="text-sm text-gray-600">Students</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-primary p-3 rounded-full mr-4 text-white">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-dark">45</h3>
+                                    <p class="text-sm text-gray-600">Qualified Staff</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-primary p-3 rounded-full mr-4 text-white">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-dark">12</h3>
+                                    <p class="text-sm text-gray-600">Awards Won</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Academic Programs</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Preschool -->
+                <div class="program-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-primary flex items-center justify-center">
+                        <i class="fas fa-child text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Preschool/Kindergarten</h3>
+                        <p class="text-gray-600 mb-4">For ages 2-5 years, our preschool program combines the British curriculum with elements of the Ghanaian education system.</p>
+                        <ul class="text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Play-based learning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Early literacy & numeracy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Social & emotional development</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Primary -->
+                <div class="program-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-secondary flex items-center justify-center">
+                        <i class="fas fa-book-open text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Primary School (Years 1-6)</h3>
+                        <p class="text-gray-600 mb-4">Our primary program builds strong foundations in core subjects while encouraging curiosity and creativity.</p>
+                        <ul class="text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Cambridge Lower Secondary</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Literacy & numeracy focus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>Science & ICT integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Secondary -->
+                <div class="program-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-dark flex items-center justify-center">
+                        <i class="fas fa-atom text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Secondary School</h3>
+                        <p class="text-gray-600 mb-4">Our secondary program prepares students for top universities worldwide through rigorous academic preparation.</p>
+                        <ul class="text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>IGCSE & A-Level programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>STEM and UCMAS-focused curriculum</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                <span>University preparation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-primary rounded-lg p-8 text-white">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-2/3 mb-6 lg:mb-0">
+                        <h3 class="text-2xl font-bold mb-3">Cambridge & Edexcel Curriculum</h3>
+                        <p class="mb-4">Dayspring International Academy runs both the Cambridge Assessment International Examination and the Pearson Edexcel modules from preschool through secondary levels, preparing students for global academic success.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <img src="https://via.placeholder.com/150x80?text=Cambridge" alt="Cambridge" class="h-12">
+                            <img src="https://via.placeholder.com/150x80?text=Edexcel" alt="Edexcel" class="h-12">
+                            <img src="https://via.placeholder.com/150x80?text=AISA" alt="AISA" class="h-12">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 lg:pl-8">
+                        <div class="bg-white text-dark p-6 rounded-lg shadow-lg">
+                            <h4 class="font-bold text-lg mb-3">Our Achievements</h4>
+                            <p class="mb-4">In March 2023, our engineering team won the inaugural University of Nottingham Schools Bridge-Building Competition in Accra.</p>
+                            <a href="#" class="text-primary font-medium hover:underline">Read more about our awards →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Admissions Process</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <div class="bg-light p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold text-dark mb-6">How to Apply</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white">
+                                        <span class="text-xl font-bold">1</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-dark">Visit Our Campus</h4>
+                                    <p class="mt-1 text-gray-600">Schedule a tour of our facilities between 8am and 4pm on weekdays.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white">
+                                        <span class="text-xl font-bold">2</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-dark">Complete Application</h4>
+                                    <p class="mt-1 text-gray-600">Submit the application form along with required documents (birth certificate, academic records).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white">
+                                        <span class="text-xl font-bold">3</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-dark">Entrance Assessment</h4>
+                                    <p class="mt-1 text-gray-600">All prospective students take an entrance assessment before admission.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white">
+                                        <span class="text-xl font-bold">4</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-dark">Admission Decision</h4>
+                                    <p class="mt-1 text-gray-600">The admissions committee will communicate their final decision to parents.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-primary bg-opacity-10 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold text-dark mb-6">Admission Requirements</h3>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-dark mb-2">Key Information</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-calendar-alt text-primary mt-1 mr-3"></i>
+                                    <span><strong>Admission Period:</strong> July–August each year</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-file-alt text-primary mt-1 mr-3"></i>
+                                    <span><strong>Documents Needed:</strong> Birth certificate, academic records, recommendation forms</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-money-bill-wave text-primary mt-1 mr-3"></i>
+                                    <span><strong>Assessment Fee:</strong> Required for entrance testing</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-dark mb-2">Age Requirements</h4>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="border-b">
+                                            <th class="text-left py-2 text-dark">Grade Level</th>
+                                            <th class="text-left py-2 text-dark">Age Range</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="py-2">Preschool</td>
+                                            <td class="py-2">1-6 years</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-2">Primary (Year 1)</td>
+                                            <td class="py-2">6-11 years</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-2">Lower Secondary</td>
+                                            <td class="py-2">11-14 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2">SHS 1</td>
+                                            <td class="py-2">14-18 years</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                            Request More Information
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Campuses & Facilities</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Preschool/Kindergarten Campus</h3>
+                        <p class="text-gray-600 mb-3">Trassaco, East Legon, Adjiringanor</p>
+                        <p class="text-gray-700">Our early years campus features child-friendly learning spaces, outdoor play areas, and specialized facilities for young learners.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1588072432904-843af37f03fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Primary Campus</h3>
+                        <p class="text-gray-600 mb-3">Otano (near Ability Square), Adjiringanor</p>
+                        <p class="text-gray-700">The primary campus features modern classrooms, a well-stocked library, computer lab, and spaces for creative activities.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Secondary Campus</h3>
+                        <p class="text-gray-600 mb-3">Nmai Dzorn, East Legon Extension</p>
+                        <p class="text-gray-700">Our secondary campus includes science labs, ICT facilities, sports fields, and specialized spaces for senior students.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2">
+                        <div class="h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'); min-height: 300px;"></div>
+                    </div>
+                    <div class="lg:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold text-dark mb-4">Extracurricular Activities</h3>
+                        <p class="text-gray-700 mb-6">At Dayspring International Academy, we believe in holistic education that goes beyond academics. Our students have access to a wide range of extracurricular activities.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-futbol text-primary"></i>
+                                </div>
+                                <span class="font-medium">Sports</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-music text-primary"></i>
+                                </div>
+                                <span class="font-medium">Music & Choir</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-paint-brush text-primary"></i>
+                                </div>
+                                <span class="font-medium">Art Club</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-theater-masks text-primary"></i>
+                                </div>
+                                <span class="font-medium">Drama Club</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-robot text-primary"></i>
+                                </div>
+                                <span class="font-medium">Robotics</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-3">
+                                    <i class="fas fa-swimmer text-primary"></i>
+                                </div>
+                                <span class="font-medium">Swimming</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Parents & Students Say</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white text-dark p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Parent" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Mrs. Adjei</h4>
+                            <p class="text-sm text-gray-600">Parent of Primary Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The teachers at Dayspring truly care about each child's development. My daughter has flourished academically and socially since joining."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white text-dark p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Kwame O.</h4>
+                            <p class="text-sm text-gray-600">A-Level Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The STEM program prepared me exceptionally well for university. I was accepted to study Engineering at KNUST with a scholarship."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white text-dark p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Parent" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Mrs. Mensah</h4>
+                            <p class="text-sm text-gray-600">Parent of Preschooler</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The preschool environment is nurturing and stimulating. My son looks forward to school every day and has developed so much in just one term."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <div class="bg-light p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold text-dark mb-6">Get in Touch</h3>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-primary bg-opacity-10 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold text-dark mb-6">Our Locations</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="bg-primary p-3 rounded-full text-white">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Preschool/Primary Campus</h4>
+                                    <p class="text-gray-700">Otano/Adjiringanor (near Ability Square), Accra</p>
+                                    <p class="text-gray-600 mt-1"><i class="fas fa-phone-alt mr-2 text-primary"></i> +233 277 777 172</p>
+                                    <p class="text-gray-600"><i class="fas fa-phone-alt mr-2 text-primary"></i> +233 542 126 646</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="bg-primary p-3 rounded-full text-white">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Secondary Campus</h4>
+                                    <p class="text-gray-700">Nmai Dzorn, East Legon Extension (behind NTHC Estate)</p>
+                                    <p class="text-gray-600 mt-1"><i class="fas fa-phone-alt mr-2 text-primary"></i> +233 203 752 562</p>
+                                    <p class="text-gray-600"><i class="fas fa-phone-alt mr-2 text-primary"></i> +233 547 330 882</p>
+                                    <p class="text-gray-600"><i class="fas fa-phone-alt mr-2 text-primary"></i> +233 242 511 271</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="bg-primary p-3 rounded-full text-white">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Email</h4>
+                                    <p class="text-gray-700">info@daysia-edu.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="bg-primary p-3 rounded-full text-white">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Website</h4>
+                                    <p class="text-gray-700">www.daysia-edu.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-dark mb-4">Office Hours</h4>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <p class="text-gray-700 mb-2"><strong>Monday - Friday:</strong> 8:00 AM - 4:00 PM</p>
+                                <p class="text-gray-700"><strong>Saturday:</strong> 9:00 AM - 12:00 PM (Admissions Only)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.391281119129!2d-0.166260924686691!3d5.65747893389719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9f8a4ee1ed05%3A0x4a46a4e9a1b5d0a8!2sDayspring%20International%20Academy!5e0!3m2!1sen!2sgh!4v1684320000000!5m2!1sen!2sgh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Dayspring International Academy</h3>
+                    <p class="mb-4">A Christian international school offering holistic, values-based education from preschool through pre-university levels.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-accent transition duration-300">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent transition duration-300">About Us</a></li>
+                        <li><a href="#programs" class="hover:text-accent transition duration-300">Academic Programs</a></li>
+                        <li><a href="#admissions" class="hover:text-accent transition duration-300">Admissions</a></li>
+                        <li><a href="#facilities" class="hover:text-accent transition duration-300">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                            <span>Otano/Adjiringanor, Accra</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-accent"></i>
+                            <span>+233 302 540 540</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                            <span>info@daysia-edu.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="mb-4">Subscribe to our newsletter for the latest updates and news.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-dark">
+                        <button type="submit" class="bg-primary hover:bg-secondary px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2023 Dayspring International Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.remove('open');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>
